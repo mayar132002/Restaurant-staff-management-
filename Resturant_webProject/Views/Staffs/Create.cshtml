@@ -1,0 +1,117 @@
+﻿@model Resturant_webProject.Models.Staff
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/LayoutPage.cshtml";
+}
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div>
+
+        <section id="contact2" class="section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+
+                        <form name="sentMessage" class="contact-form" method="post" novalidate>
+                            <h3>Add Staff</h3>
+                            <hr />
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row control-group">
+                                        <div class="form-group col-xs-12 controls">
+                                            @Html.EditorFor(model => model.C_Name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Name" } })
+                                            @Html.ValidationMessageFor(model => model.C_Name, "", new { @class = "text-danger" })
+                                           
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="row control-group">
+                                        <div class="form-group col-xs-12 controls">
+
+                                            @Html.EditorFor(model => model.C_Phone, new { htmlAttributes = new { @class = "form-control", @placeholder = "phone" } })
+                                            @Html.ValidationMessageFor(model => model.C_Phone, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row control-group">
+                                <div class="form-group col-xs-12  controls">
+
+                                    @Html.EditorFor(model => model.C_Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Email" } })
+                                    @Html.ValidationMessageFor(model => model.C_Email, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row control-group">
+                                <div class="form-group col-xs-12 controls">
+
+                                    @Html.EditorFor(model => model.C_Password, new { htmlAttributes = new { @class = "form-control", @placeholder = "password",@type="password" } })
+                                    @Html.ValidationMessageFor(model => model.C_Password, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <br>
+                            <div id="success"></div>
+                            <div class="row">
+                                <div class="form-group col-xs-12 text-right">
+                                    <button type="submit" class="btn btn-warning btn-lg">ADD</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    @*<div class="form-group">
+            @Html.LabelFor(model => model.C_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.C_Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.C_Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.C_Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.C_Phone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.C_Phone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.C_Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.C_Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.C_Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.C_Password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.C_Password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.C_Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>*@
+</div>
+}
+
+<div>
+    <a href='@Url.Action("Index", "Staffs")' class="btn btn-warning" style="margin:20px;">Back To List</a>
+</div>

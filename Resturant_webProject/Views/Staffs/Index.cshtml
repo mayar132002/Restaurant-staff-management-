@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Resturant_webProject.Models.Staff>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/LayoutPage.cshtml";
+}
+<div id="about" class="section-padding" style="padding-top:40px;padding-bottom:100px;padding-left:100px;padding-right:100px">
+    <p>
+        <a href='@Url.Action("Create", "Staffs")' class="btn btn-warning" style="margin:20px;">Add Staff</a>
+
+    </p>
+    <table class="table table-striped" style="margin:40px">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Password</th>
+
+                <th></th>
+                <th></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.C_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.C_Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.C_Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.C_Password)
+                </td>
+                @*<td>
+
+            @Html.ActionLink("Edit", "Edit", new { id = item.C_ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.C_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.C_ID })
+        </td>*@
+                <td>
+                    <a class="edit" href='@Url.Action("Edit", "Staffs", new {id = item.C_ID})'>
+                        <i title="edit">
+                            <img src="~/assests/images/user.png" />
+                        </i>
+                    </a>
+
+                </td>
+                <td>
+                    <a  href='@Url.Action("Delete", "Staffs", new {id = item.C_ID})'>
+                        <i title="delete">
+                            <img src="~/assests/images/delete.png" />
+                        </i>
+                    </a>
+
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+
